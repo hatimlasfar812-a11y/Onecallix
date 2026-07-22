@@ -1,57 +1,107 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+import { auth, db } from "./firebase.js";
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f7f7f7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  RecaptchaVerifier,
+  signInWithPhoneNumber
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-.login-box {
-  width: 90%;
-  max-width: 360px;
-  background: #fff;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
-  text-align: center;
-}
+import {
+  doc,
+  setDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-h1 {
-  margin-bottom: 30px;
-}
+// =====================
+// GOOGLE LOGIN
+// =====================
 
-button {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
+const googleBtn = document.getElementById("googleLogin");
+const provider = new GoogleAuthProvider();
 
-.google-btn {
-  background: #4285F4;
-  color: #fff;
-}
+googleBtn.addEventListener("click", async () => {
+  
+  try {
+    
+    const result = await signInWithPopup(auth, provider);
+    
+    const user = result.user;
+    
+    await setDoc(doc(db, "users", user.uid), {
+      uid: user.uid,
+      name: user.displayName || "",
+      email: user.email || "",
+      phone: user.phoneNumber || "",
+      photo: user.photoURL || "",
+      createdAt: serverTimestamp()
+    }, { merge: true });
+    
+    window.location.href = "index.html";
+    
+  } catch (error) {
+    
+    alert(error.message);
+    console.error(error);
+    
+  }
+  
+});
 
-.phone-btn {
-  background: #FF7A00;
-  color: #fff;
-}
+// =====================
+// PHONE LOGIN
+// =====================
 
-button:active {
-  transform: scale(.97);
-}
+const phoneBtn = document.getElementById("phoneLogin");
 
-#recaptcha-container {
-  margin-top: 10px;
-}
+phoneBtn.addEventListener("click", async () => {
+  
+  const phone = prompt("Enter phone number\nExample: +212612345678");
+  
+  if (!phone) return;
+  
+  try {
+    
+    if (!window.recaptchaVerifier) {
+      
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        auth,
+        "recaptcha-container",
+        {
+          size: "invisible"
+        }
+      );
+      
+      await window.recaptchaVerifier.render();
+    }
+    
+    const confirmationResult = await signInWithPhoneNumber(
+      auth,
+      phone,
+      window.recaptchaVerifier
+    );
+    
+    const code = prompt("Enter verification code");
+    
+    if (!code) return;
+    
+    const result = await confirmationResult.confirm(code);
+    
+    const user = result.user;
+    
+    await setDoc(doc(db, "users", user.uid), {
+      uid: user.uid,
+      phone: user.phoneNumber,
+      createdAt: serverTimestamp()
+    }, { merge: true });
+    
+    window.location.replace("index.html");
+    
+  } catch (error) {
+    
+    console.error(error);
+    alert(error.code + "\n\n" + error.message);
+    
+  }
+  
+});
