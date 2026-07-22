@@ -2,9 +2,9 @@
 import { db, auth } from "./firebase.js";
 
 import {
-  onAuthStateChanged
+  onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-
 import {
   collection,
   getDocs,
@@ -424,8 +424,12 @@ loginBtn.onclick = () => {
   location.href = "login.html";
 };
 
-profileBtn.onclick = () => {
-  location.href = "profile.html";
+profileBtn.onclick = async () => {
+  
+  await signOut(auth);
+  
+  location.href = "login.html";
+  
 };
 
 onAuthStateChanged(auth, (user) => {
