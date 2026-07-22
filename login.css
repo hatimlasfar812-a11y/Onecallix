@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  width: 90%;
+  max-width: 360px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.google-btn {
+  background: #4285F4;
+  color: #fff;
+}
+
+.phone-btn {
+  background: #FF7A00;
+  color: #fff;
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+#recaptcha-container {
+  margin-top: 10px;
+}

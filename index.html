@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>One Call</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+  
+
+<header class="header">
+    
+    <div class="header-top">
+        
+        <button class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        
+        <div class="logo">
+            <img src="oneCallLogo.png" alt="One Call">
+        </div>
+        
+        <div class="user-area">
+
+    <button id="loginBtn" class="login-btn">
+        Connexion
+    </button>
+
+    <img
+        id="profileBtn"
+        class="profile-avatar"
+        src="https://ui-avatars.com/api/?name=User"
+        style="display:none;">
+
+</div>
+        </div>
+    
+    <div id="header-search"></div>
+</header>
+
+<!-- ================= SERVICES ================= -->
+<section class="services">
+    
+<div class="service-item" onclick="window.location.href='food.html?category=all'">
+    <div class="service-circle">
+        <img src="images/food.png" alt="Food">
+    </div>
+    <div class="service-label">Food</div>
+</div>
+    
+    <div class="service-item">
+        <div class="service-circle">
+            <img src="images/groceries.png" alt="Groceries">
+        </div>
+        <div class="service-label">Groceries</div>
+    </div>
+    
+    <div class="service-item">
+        <div class="service-circle">
+            <img src="images/package.png" alt="Package Delivery">
+        </div>
+        <div class="service-label">Package Delivery</div>
+    </div>
+    
+    <div class="service-item">
+        <div class="service-circle">
+            <img src="images/shops.png" alt="Shops">
+        </div>
+        <div class="service-label">Shops</div>
+    </div>
+    
+    <div class="service-item">
+        <div class="service-circle">
+            <img src="images/ParaPharmacy&beauty.png" alt="Parapharmacy & Beauty">
+        </div>
+        <div class="service-label">Parapharmacy &amp; Beauty</div>
+    </div>
+    
+    <div class="service-item">
+        <div class="service-circle">
+            <img src="images/others.png" alt="Others">
+        </div>
+        <div class="service-label">Others</div>
+    </div>
+    
+</section>
+
+
+
+
+<!-- ================= search ================= -->
+   <section class="search-section" id="searchSection">
+      <div class="search-box">
+        <!-- أيقونة العدسة المكبرة الاحترافية -->
+        <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Search" class="search-icon">
+<input
+    id="searchInput"
+    type="text"
+    class="search-input"
+    placeholder="ابحث عن مطعم أو وجبة...">
+        
+        <!-- زر الفلتر -->
+        <button id="filterBtn" class="filter-btn">
+          <img src="https://i.ibb.co/cXhFGB5x/IMG-2813.png" alt="Filter" class="icon-img">
+        </button>
+      </div>
+    </section>
+    <!-- نافذة الفلتر (Bottom Sheet) -->
+<div id="filterModal" class="filter-modal">
+    <div class="modal-content">
+        <div class="drag-bar"></div>
+        <h2 class="title">تصفية البحث</h2>
+        <div class="options">
+            <label class="check-item"><input type="checkbox"> توصيل مجاني</label>
+            <label class="check-item"><input type="checkbox"> عرض اليوم</label>
+            <label class="check-item"><input type="checkbox"> سريع جداً (20 دقيقة)</label>
+        </div>
+        <button id="closeModal" class="apply-btn">تطبيق الخيارات</button>
+    </div>
+</div>
+ <!-- ================= CATEGORIES ================= -->
+ 
+
+<section class="categories" id="categoriesContainer">
+    
+</section>
+
+
+  <!-- ================= OFFERS ================= -->
+  
+  <!-- ================= HERO SLIDER ================= -->
+
+<section class="hero-slider">
+    
+    <div class="slider-track">
+        
+        <div class="hero-slide active">
+            
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1400&q=80&auto=format&fit=crop" alt="">
+            
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content">
+                
+                <span class="hero-badge">🔥 -40%</span>
+                
+                <h2>أفضل العروض اليوم</h2>
+                
+                <p>اطلب الآن واستفد من خصومات حصرية</p>
+                
+                <button class="hero-btn">
+                    اطلب الآن
+                </button>
+                
+            </div>
+            
+        </div>
+        
+        <div class="hero-slide">
+            
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1400&q=80&auto=format&fit=crop" alt="">
+            
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content">
+                
+                <span class="hero-badge">⚡ Livraison</span>
+                
+                <h2>توصيل سريع</h2>
+                
+                <p>يصلك طلبك في أقل وقت</p>
+                
+                <button class="hero-btn">
+                    اكتشف
+                </button>
+                
+            </div>
+            
+        </div>
+        
+        <div class="hero-slide">
+            
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=1400&q=80&auto=format&fit=crop" alt="">
+            
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content">
+                
+                <span class="hero-badge">🎁 Promo</span>
+                
+                <h2>وفر حتى 100 MAD</h2>
+                
+                <p>استعمل الكوبون FIRST100</p>
+                
+                <button class="hero-btn">
+                    استعمل الكوبون
+                </button>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    <button class="slider-arrow prev">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    
+    <button class="slider-arrow next">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+    
+    <div class="slider-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+    
+</section>
+
+
+<section class="dashboard">
+    
+    <div class="dashboard-card coupon-card">
+        <img src="images/dashboard/coupon.png">
+        <button class="dashboard-btn" id="copyCoupon">
+            Copy Code
+        </button>
+    </div>
+    
+    <div class="dashboard-card invite-card">
+        <img src="images/dashboard/invite.png">
+        <button class="dashboard-btn" id="inviteFriends">
+            Invite Friends
+        </button>
+    </div>
+    
+    <div class="dashboard-card reward-card">
+        <img src="images/dashboard/reward.png">
+        <button class="dashboard-btn" id="viewRewards">
+            View Rewards
+        </button>
+    </div>
+    
+    <div class="dashboard-card flash-card">
+        <img src="images/dashboard/flash.png">
+        <button class="dashboard-btn" id="viewFlashDeals">
+            View Deals
+        </button>
+    </div>
+    
+</section>
+
+<!-- Restaurants -->
+<section>
+    <div class="restaurants-scroll"></div>
+</section>
+
+<!-- page scripts -->
+
+
+<script type="module" src="script.js"></script>
+
+</body>
+
+</html>

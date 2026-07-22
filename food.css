@@ -1,0 +1,886 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  background: #F7F7F7;
+  color: #222;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input {
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+.app {
+  max-width: 600px;
+  margin: auto;
+  min-height: 100vh;
+  background: #fff;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+}
+
+.header-top {
+  height: 80px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-btn i,
+.profile-btn i {
+  font-size: 25px;
+  color: #222;
+}
+
+.logo img {
+  width: 160px;
+}
+
+/* =========================
+   LOCATION
+========================= */
+
+.location-section {
+  padding: 5px 20px 18px;
+}
+
+.location-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  margin-top: -10px;
+  
+  background: transparent;
+  border: none;
+  width: fit-content;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.location-btn .fa-location-dot {
+  color: #FF7A00;
+}
+
+.location-btn .fa-chevron-down {
+  font-size: 16px;
+  color: #777;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-section {
+  padding: 0 10px 0;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #F3F3F3;
+  border-radius: 35px;
+  height: 48px;
+  overflow: hidden;
+  margin-top: -15px;
+}
+
+.search-box i {
+  padding-left: 18px;
+  font-size: 20px;
+  color: #777;
+}
+
+.search-box input {
+  flex: 1;
+  background: transparent;
+  padding: 16px;
+  font-size: 16px;
+}
+
+.search-box button {
+  background: #00896B;
+  color: #fff;
+  padding: 16px 26px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title-section {
+padding: 0 10px 0px;
+}
+
+.title-section h1 {
+  margin:  0px 17px;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+/*=========================
+FOOD CATEGORIES
+=========================*/
+
+.food-categories {
+  
+  display: flex;
+  
+  gap: 12px;
+  
+  overflow-x: auto;
+  margin-top: -15px;
+  padding: 8px 16px 0px;
+  scrollbar-width: none;
+  
+}
+
+.food-categories::-webkit-scrollbar {
+  
+  display: none;
+  
+}
+
+.food-category {
+  
+  flex: 0 0 auto;
+  
+  display: flex;
+  
+  flex-direction: column;
+  
+  align-items: center;
+  
+  cursor: pointer;
+  
+  transition: .25s;
+  
+}
+
+.food-category img {
+  
+  width: 45px;
+  
+  height: 45px;
+  
+  object-fit: contain;
+  
+  transition: .25s;
+  
+}
+
+.food-category span {
+  
+  margin-top: 8px;
+  
+  font-size: 14px;
+  
+  font-weight: 700;
+  
+  white-space: nowrap;
+  
+}
+
+.food-category.active img {
+  
+  transform: scale(1.15);
+  
+}
+
+.food-category:active img {
+  
+  transform: scale(.92);
+  
+}
+/* =========================
+   ACTIVE CATEGORY
+========================= */
+
+.food-category {
+  
+  padding: 10px 12px;
+  
+  border-radius: 18px;
+  
+  transition: .25s ease;
+  
+}
+
+.food-category.active {
+  
+  background: #EAF8F2;
+  
+}
+
+.food-category.active img {
+  
+  transform: scale(1.12);
+  
+}
+
+.food-category.active span {
+  
+  color: #00A082;
+  
+  font-weight: 700;
+  
+}
+
+/* =========================
+   RESTAURANTS
+========================= */
+
+.restaurants-section {
+  
+  padding: 20px 16px 40px;
+  
+}
+
+.restaurants-grid {
+  
+  display: flex;
+  
+  flex-direction: column;
+  
+  gap: 16px;
+  
+}
+
+.restaurant-image-wrapper {
+  position: relative;
+}
+
+.restaurant-status {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.open {
+  background: #18b368;
+}
+
+.closed {
+  background: #e53935;
+}
+/* =========================
+   RESTAURANT CARD
+========================= */
+
+.restaurant-card {
+  
+  background: #fff;
+  
+  border-radius: 22px;
+  
+  overflow: hidden;
+  
+  margin-bottom: 18px;
+  
+  box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+  
+  transition: .25s;
+  
+  cursor: pointer;
+  
+}
+
+.restaurant-card:active {
+  
+  transform: scale(.98);
+  
+}
+
+.restaurant-image-wrapper {
+  
+  position: relative;
+  
+}
+
+.restaurant-image {
+  
+  width: 100%;
+  
+  height: 190px;
+  
+  object-fit: cover;
+  
+  display: block;
+  
+}
+
+.restaurant-favorite {
+  
+  position: absolute;
+  
+  top: 14px;
+  
+  left: 14px;
+  
+  width: 42px;
+  
+  height: 42px;
+  
+  background: #fff;
+  
+  border-radius: 50%;
+  
+  display: flex;
+  
+  justify-content: center;
+  
+  align-items: center;
+  
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
+  
+}
+
+.restaurant-favorite i {
+  
+  font-size: 18px;
+  
+  color: #666;
+  
+}
+
+.restaurant-status {
+  
+  position: absolute;
+  
+  top: 14px;
+  
+  right: 14px;
+  
+  padding: 7px 14px;
+  
+  border-radius: 30px;
+  
+  color: #fff;
+  
+  font-size: 13px;
+  
+  font-weight: 700;
+  
+}
+
+.open {
+  
+  background: #14AE5C;
+  
+}
+
+.closed {
+  
+  background: #E53935;
+  
+}
+
+.restaurant-content {
+  
+  padding: 18px;
+  
+}
+
+.restaurant-header {
+  
+  display: flex;
+  
+  justify-content: space-between;
+  
+  align-items: center;
+  
+  gap: 10px;
+  
+}
+
+.restaurant-header h3 {
+  
+  font-size: 20px;
+  
+  font-weight: 700;
+  
+}
+
+.restaurant-rating {
+  
+  background: #FFF5D6;
+  
+  color: #D18A00;
+  
+  padding: 5px 10px;
+  
+  border-radius: 12px;
+  
+  font-size: 14px;
+  
+  font-weight: 700;
+  
+}
+
+.restaurant-cuisine {
+  
+  margin-top: 8px;
+  
+  color: #777;
+  
+  font-size: 15px;
+  
+}
+
+.restaurant-meta {
+  
+  margin-top: 14px;
+  
+  display: flex;
+  
+  justify-content: space-between;
+  
+  color: #555;
+  
+  font-size: 14px;
+  
+  font-weight: 600;
+  
+}
+
+/*=========================
+RESTAURANT INFO
+=========================*/
+
+.restaurant-info-card {
+  
+  margin: -25px 16px 0;
+  
+  background: #fff;
+  
+  border-radius: 22px;
+  
+  padding: 20px;
+  
+  position: relative;
+  
+  z-index: 20;
+  
+  box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+  
+}
+
+.restaurant-title {
+  
+  display: flex;
+  
+  justify-content: space-between;
+  
+  align-items: center;
+  
+  gap: 10px;
+  
+}
+
+.restaurant-title h2 {
+  
+  font-size: 26px;
+  
+  font-weight: 800;
+  
+}
+
+.restaurant-rating {
+  
+  background: #FFF4D6;
+  
+  color: #D18A00;
+  
+  padding: 6px 12px;
+  
+  border-radius: 12px;
+  
+  font-weight: 700;
+  
+}
+
+.restaurant-description {
+  
+  margin-top: 10px;
+  
+  color: #666;
+  
+  line-height: 1.6;
+  
+}
+
+.restaurant-details {
+  
+  display: flex;
+  
+  justify-content: space-between;
+  
+  gap: 10px;
+  
+  margin-top: 20px;
+  
+}
+
+.detail-box {
+  
+  flex: 1;
+  
+  background: #F7F7F7;
+  
+  border-radius: 16px;
+  
+  padding: 14px 10px;
+  
+  display: flex;
+  
+  flex-direction: column;
+  
+  align-items: center;
+  
+  gap: 8px;
+  
+}
+
+.detail-box i {
+  
+  color: #00896B;
+  
+  font-size: 18px;
+  
+}
+
+.detail-box span {
+  
+  font-size: 14px;
+  
+  font-weight: 700;
+  
+  text-align: center;
+  
+}
+/* =========================
+   LOCATION MODAL
+========================= */
+
+.location-overlay {
+  
+  position: fixed;
+  inset: 0;
+  
+  background: rgba(0, 0, 0, .45);
+  
+  opacity: 0;
+  visibility: hidden;
+  
+  transition: .3s;
+  
+  z-index: 99998;
+  
+}
+
+.location-overlay.show {
+  
+  opacity: 1;
+  visibility: visible;
+  
+}
+
+
+.location-modal {
+  
+  position: fixed;
+  
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  
+  max-height: 95vh;
+  overflow-y: auto;
+  
+  background: #fff;
+  
+  border-radius: 28px 28px 0 0;
+  
+  padding: 20px;
+  
+  transition: .35s ease;
+  
+  z-index: 99999;
+  
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, .18);
+  
+}
+
+.location-modal.show {
+  
+  bottom: 0;
+  
+}
+
+.location-handle {
+  
+  width: 55px;
+  height: 5px;
+  
+  background: #ddd;
+  
+  border-radius: 20px;
+  
+  margin: 0 auto 18px;
+  
+}
+
+.location-modal h2 {
+  
+  font-size: 22px;
+  
+  font-weight: 800;
+  
+  margin-bottom: 18px;
+  
+}
+
+.location-option {
+  
+  width: 100%;
+  
+  display: flex;
+  
+  align-items: center;
+  
+  gap: 15px;
+  
+  padding: 16px;
+  
+  margin-bottom: 14px;
+  
+  background: #F7F7F7;
+  
+  border-radius: 18px;
+  
+  cursor: pointer;
+  
+  transition: .25s;
+  
+}
+
+.location-option:active {
+  
+  transform: scale(.98);
+  
+}
+
+.location-option i {
+  
+  font-size: 24px;
+  
+  color: #FF7A00;
+  
+}
+
+.location-option strong {
+  
+  display: block;
+  
+  font-size: 17px;
+  
+}
+
+.location-option p {
+  
+  font-size: 14px;
+  
+  color: #777;
+  
+  margin-top: 4px;
+  
+}
+
+.cancel-btn {
+  
+  width: 100%;
+  
+  height: 54px;
+  
+  border-radius: 16px;
+  
+  background: #FF7A00;
+  
+  color: #fff;
+  
+  font-size: 17px;
+  
+  font-weight: 700;
+  
+  margin-top: 8px;
+  
+}
+.map-container {
+  
+  display: none;
+  
+  margin-top: 20px;
+  
+}
+
+.map-container.show {
+  
+  display: block;
+  
+}
+
+#map {
+  
+  width: 100%;
+  
+  height: 350px;
+  
+  border-radius: 20px;
+  
+  overflow: hidden;
+  
+}
+
+.confirm-location-btn {
+  
+  width: 100%;
+  
+  height: 52px;
+  
+  margin-top: 15px;
+  
+  border: none;
+  
+  border-radius: 16px;
+  
+  background: #00A082;
+  
+  color: #fff;
+  
+  font-size: 17px;
+  
+  font-weight: 700;
+  
+  cursor: pointer;
+  
+}
+.search-box {
+  position: relative;
+}
+
+.search-suggestions {
+  
+  position: absolute;
+  
+  top: 100%;
+  
+  left: 0;
+  right: 0;
+  
+  background: #fff;
+  
+  border-radius: 18px;
+  
+  margin-top: 8px;
+  
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+  
+  display: none;
+  
+  overflow: hidden;
+  
+  z-index: 5000;
+  
+}
+
+.search-suggestions.show {
+  display: block;
+}
+
+.search-item {
+  
+  padding: 14px 18px;
+  
+  cursor: pointer;
+  
+  transition: .2s;
+  
+}
+
+.search-item:hover {
+  
+  background: #f7f7f7;
+  
+}
+.restaurant-actions {
+  
+  display: flex;
+  
+  align-items: center;
+  
+  gap: 12px;
+  
+}
+
+.restaurant-favorite {
+  
+  width: 46px;
+  
+  height: 46px;
+  
+  border: none;
+  
+  border-radius: 50%;
+  
+  background: #fff;
+  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+  
+  cursor: pointer;
+  
+  font-size: 20px;
+  
+}

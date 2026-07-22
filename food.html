@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Food</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <link rel="stylesheet" href="food.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- HEADER -->
+  <header class="header">
+
+    <div class="header-top">
+
+      <button class="menu-btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div class="logo">
+        <img src="logoFood.png" alt="OneCall">
+      </div>
+
+      <button class="profile-btn">
+        <i class="fa-regular fa-user"></i>
+      </button>
+
+    </div>
+
+  </header>
+
+  <!-- LOCATION -->
+<section class="location-section">
+  
+  <button class="location-btn" id="locationBtn">
+  
+    <i class="fa-solid fa-location-dot"></i>
+    
+    <span id="currentLocation">Oujda, Morocco</span>
+    
+    <i class="fa-solid fa-chevron-down"></i>
+    
+  </button>
+  
+</section>
+
+  <!-- SEARCH -->
+  <section class="search-section">
+
+    <div class="search-box">
+
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+  type="text"
+  id="searchInput"
+  placeholder="Search restaurants...">
+  <div id="searchSuggestions" class="search-suggestions"></div>
+      <button>
+        Search
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- TITLE -->
+  <section class="title-section">
+
+    <h1>Hungry?</h1>
+
+  </section>
+
+  <!-- ================= FOOD CATEGORIES ================= -->
+
+<section
+    id="foodCategories"
+    class="food-categories">
+
+</section>
+
+
+  <!-- FILTERS -->
+  <section class="filters">
+
+  </section>
+
+  <!-- RESTAURANTS -->
+<section class="restaurants-section">
+  
+  <div id="restaurantsContainer" class="restaurants-grid">
+    
+  </div>
+  
+</section>
+
+</div>
+<!-- LOCATION MODAL -->
+
+<div id="locationOverlay" class="location-overlay"></div>
+
+<div id="locationModal" class="location-modal">
+
+  
+  <div class="location-handle"></div>
+  
+  <h2>Delivery Address</h2>
+  
+  <button id="currentLocationBtn" class="location-option">
+  
+    <i class="fa-solid fa-location-crosshairs"></i>
+    
+    <div>
+      
+      <strong>Use Current Location</strong>
+      
+      <p>Use your phone GPS</p>
+      
+    </div>
+    
+  </button>
+  
+  <button id="mapLocationBtn" class="location-option">
+  
+    <i class="fa-solid fa-map-location-dot"></i>
+    
+    <div>
+      
+      <strong>Choose on Map</strong>
+      
+      <p>Select your location manually</p>
+      
+    </div>
+    
+  </button>
+  <div id="mapContainer" class="map-container">
+  
+  <div id="map"></div>
+  
+  <button id="confirmLocation" class="confirm-location-btn">
+    Confirm Location
+  </button>
+  
+</div>
+  <button id="closeLocationModal" class="cancel-btn">
+    Cancel
+  </button>
+  
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script type="module" src="./food.js"></script>
+
+
+</body>
+</html>
